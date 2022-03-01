@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "358531464667",
+    "project_id": "khero-khata",
+    "storage_bucket": "khero-khata.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358531464667:android:2db246a56a213b6bbcfbfe",
+        "android_client_info": {
+          "package_name": "com.orbachinujbuk.kherokhata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358531464667-9tavtdg8m7kc53d8r84sng9fg6f1q45f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.orbachinujbuk.kherokhata",
+            "certificate_hash": "ab08836e0761fada65d8816cc3c00b973a6611a2"
+          }
+        },
+        {
+          "client_id": "358531464667-7lqcd5nf7cj14ucr686ffo06321gboe7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUfpiepVZwraE_pbZGlsp4uPkuncvN-n4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358531464667-7lqcd5nf7cj14ucr686ffo06321gboe7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
