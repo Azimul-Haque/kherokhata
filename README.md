@@ -1,4 +1,4 @@
-# kherokhata
+# Khero Khata
 
 A new Flutter project.
 
