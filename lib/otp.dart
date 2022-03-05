@@ -27,6 +27,14 @@ class _OTPScreenState extends State<OTPScreen> {
   );
 
   @override
+  void initState() {
+    // ignore: todo
+    // TODO: implement initState
+    super.initState();
+    _verifyPhone();
+  }
+
+  @override
   Widget build(BuildContext context) {
     const borderColor = Color.fromRGBO(30, 60, 87, 1);
     final defaultPinTheme = PinTheme(
@@ -92,13 +100,18 @@ class _OTPScreenState extends State<OTPScreen> {
               focusNode: _pinPutFocusNode,
               cursor: cursor,
               showCursor: true,
-              onCompleted: (pin) => (pin) async {
+              onTap: () {
+                print('Tap: Tapping...');
+              },
+              onCompleted: (pin) async {
+                print('Working...');
                 try {
                   await FirebaseAuth.instance
                       .signInWithCredential(PhoneAuthProvider.credential(
                           verificationId: _verificationCode, smsCode: pin))
                       .then((value) async {
                     if (value.user != null) {
+                      showSimpleSnackBar(context, 'Successfull');
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => Home()),
@@ -109,7 +122,13 @@ class _OTPScreenState extends State<OTPScreen> {
                   FocusScope.of(context).unfocus();
                   // _scaffoldkey.currentState!
                   //     .showSnackBar(SnackBar(content: Text('invalid OTP')));
-                  showSimpleSnackBar(context, 'invalid OTP');
+                  showSimpleSnackBar(context, 'Invalid OTP');
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   SnackBar(
+                  //     behavior: SnackBarBehavior.floating,
+                  //     content: Text('invalid OTP'),
+                  //   ),
+                  // );
                 }
               },
             ),
@@ -148,13 +167,5 @@ class _OTPScreenState extends State<OTPScreen> {
           });
         },
         timeout: Duration(seconds: 120));
-  }
-
-  @override
-  void initState() {
-    // ignore: todo
-    // TODO: implement initState
-    super.initState();
-    _verifyPhone();
   }
 }
