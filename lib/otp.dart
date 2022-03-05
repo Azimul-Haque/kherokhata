@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, prefer_const_constructors, unused_local_variable
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, prefer_const_constructors, unused_local_variable, avoid_print, unused_field
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kherokhata/globals.dart';
 import 'package:kherokhata/home.dart';
 import 'package:pinput/pinput.dart';
 
@@ -106,8 +107,9 @@ class _OTPScreenState extends State<OTPScreen> {
                   });
                 } catch (e) {
                   FocusScope.of(context).unfocus();
-                  _scaffoldkey.currentState
-                      .showSnackBar(SnackBar(content: Text('invalid OTP')));
+                  // _scaffoldkey.currentState!
+                  //     .showSnackBar(SnackBar(content: Text('invalid OTP')));
+                  showSimpleSnackBar(context, 'invalid OTP');
                 }
               },
             ),
@@ -119,7 +121,7 @@ class _OTPScreenState extends State<OTPScreen> {
 
   _verifyPhone() async {
     await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: '+1${widget.phone}',
+        phoneNumber: '+88${widget.phone}',
         verificationCompleted: (PhoneAuthCredential credential) async {
           await FirebaseAuth.instance
               .signInWithCredential(credential)
@@ -135,7 +137,7 @@ class _OTPScreenState extends State<OTPScreen> {
         verificationFailed: (FirebaseAuthException e) {
           print(e.message);
         },
-        codeSent: (String verficationID, int resendToken) {
+        codeSent: (String verficationID, int? resendToken) {
           setState(() {
             _verificationCode = verficationID;
           });
@@ -150,6 +152,7 @@ class _OTPScreenState extends State<OTPScreen> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     _verifyPhone();
