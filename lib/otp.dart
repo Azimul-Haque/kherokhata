@@ -20,7 +20,7 @@ class _OTPScreenState extends State<OTPScreen> {
   final FocusNode _pinPutFocusNode = FocusNode();
   final BoxDecoration pinPutDecoration = BoxDecoration(
     color: const Color.fromRGBO(43, 46, 66, 1),
-    borderRadius: BorderRadius.circular(10.0),
+    borderRadius: BorderRadius.circular(50.0),
     border: Border.all(
       color: const Color.fromRGBO(126, 203, 224, 1),
     ),
@@ -45,8 +45,9 @@ class _OTPScreenState extends State<OTPScreen> {
           color: Color.fromRGBO(30, 60, 87, 1),
           fontWeight: FontWeight.w600),
       decoration: BoxDecoration(
-        border: Border.all(color: Color.fromRGBO(234, 239, 243, 1)),
-        borderRadius: BorderRadius.circular(20),
+        color: Colors.amber[50],
+        border: Border.all(color: Colors.black12),
+        borderRadius: BorderRadius.circular(10),
       ),
     );
     final cursor = Column(

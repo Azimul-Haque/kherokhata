@@ -13,10 +13,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late String uid;
+  late User userdata;
+
   @override
   void initState() {
     super.initState();
     uid = FirebaseAuth.instance.currentUser!.uid;
+    userdata = FirebaseAuth.instance.currentUser!;
   }
 
   @override
@@ -38,7 +41,7 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: Center(
-        child: Text(uid),
+        child: Text(userdata.uid),
       ),
     );
   }
