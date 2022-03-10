@@ -14,34 +14,46 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Phone Auth'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('Phone Auth'),
+      // ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(children: [
+            SizedBox(
+              height: 30,
+            ),
             Container(
-              margin: EdgeInsets.only(top: 60),
+              margin: EdgeInsets.only(top: 70),
               child: Center(
                 child: Text(
-                  'Phone Authentication',
+                  'খেরোখাতা',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 40, right: 10, left: 10),
+              margin: EdgeInsets.only(top: 20),
+              child: Center(
+                child: Text(
+                  'ব্যবহার শুরু করতে মোবাইল নম্বর দিন',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 20, right: 20, left: 20),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Phone Number',
+                  hintText: 'মোবাইল নম্বর',
                   prefix: Padding(
                     padding: EdgeInsets.all(4),
                     child: Text('+88'),
                   ),
                 ),
                 maxLength: 11,
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.phone,
                 controller: _controller,
               ),
             )
