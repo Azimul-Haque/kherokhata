@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_final_fields, prefer_const_constructors_in_immutables, deprecated_member_use, unnecessary_null_comparison, avoid_print
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:kherokhata/home.dart';
+import 'package:kherokhata/extra/privacy.dart';
 import 'package:kherokhata/otp.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -23,33 +21,14 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
     // Firebase.initializeApp();
     // print('TEST FROM DEVICE...');
-    var uid = FirebaseAuth.instance.currentUser?.uid ?? 0;
-    if (uid != 0) {
-      print('User is signed in!');
-      // Navigator.pushAndRemoveUntil(context,
-      //     MaterialPageRoute(builder: (context) => Home()), (route) => false);
-      Route route = MaterialPageRoute(builder: (context) => Home());
-      Navigator.push(context, route);
-    }
-    // FirebaseAuth.instance.authStateChanges().listen((event) {
-    //   (User user) {
-    //     if (user == null) {
-    //       print('User is currently signed out!');
-    //       Navigator.pushAndRemoveUntil(
-    //           context,
-    //           MaterialPageRoute(builder: (context) => OTPScreen('01555333222')),
-    //           (route) => false);
-    //     } else {
-    //       print('User is signed in!');
-    //       // User user = FirebaseAuth.instance.currentUser;
-    //       // print(user);
-    //       Navigator.pushAndRemoveUntil(
-    //           context,
-    //           MaterialPageRoute(builder: (context) => Home()),
-    //           (route) => false);
-    //     }
-    //   };
-    // });
+    // var uid = FirebaseAuth.instance.currentUser?.uid ?? 0;
+    // if (uid != 0) {
+    //   print('User is signed in!');
+    //   // Navigator.pushAndRemoveUntil(context,
+    //   //     MaterialPageRoute(builder: (context) => Home()), (route) => false);
+    //   Route route = MaterialPageRoute(builder: (context) => Home());
+    //   Navigator.push(context, route);
+    // }
   }
 
   @override
@@ -121,21 +100,34 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             )
           ]),
-          // Container(
-          //   margin: EdgeInsets.all(20),
-          //   width: double.infinity,
-          //   child: FlatButton(
-          //     color: Colors.blue,
-          //     onPressed: () {
-          //       Navigator.of(context).push(MaterialPageRoute(
-          //           builder: (context) => OTPScreen(_controller.text)));
-          //     },
-          //     child: Text(
-          //       'Next',
-          //       style: TextStyle(color: Colors.white),
-          //     ),
-          //   ),
-          // )
+          Container(
+            margin: EdgeInsets.all(20),
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white70),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                    ),
+                    elevation: MaterialStateProperty.all(1),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => PrivacyPage()));
+                  },
+                  child: Text(
+                    'শর্তাবলী',
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

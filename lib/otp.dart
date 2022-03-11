@@ -41,23 +41,24 @@ class _OTPScreenState extends State<OTPScreen> {
       width: 56,
       height: 56,
       textStyle: TextStyle(
-          fontSize: 20,
+          fontSize: 24,
           color: Color.fromRGBO(30, 60, 87, 1),
           fontWeight: FontWeight.w600),
       decoration: BoxDecoration(
         color: Colors.amber[50],
-        border: Border.all(color: Colors.black12),
+        border: Border.all(color: Colors.green),
         borderRadius: BorderRadius.circular(10),
+        // backgroundBlendMode: BlendMode.clear,
       ),
     );
     final cursor = Column(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 56,
-          height: 3,
+          width: 1.5,
+          height: 20,
           decoration: BoxDecoration(
-            color: borderColor,
+            color: Colors.green,
             borderRadius: BorderRadius.circular(8),
           ),
         ),
@@ -78,25 +79,37 @@ class _OTPScreenState extends State<OTPScreen> {
     );
     return Scaffold(
       key: _scaffoldkey,
-      appBar: AppBar(
-        title: Text('OTP Verification'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('OTP ভেরিফিকেশন'),
+      // ),
       body: Column(
         children: [
+          SizedBox(
+            height: 30,
+          ),
           Container(
-            margin: EdgeInsets.only(top: 40),
+            margin: EdgeInsets.only(top: 70),
             child: Center(
               child: Text(
-                'Verify +88-${widget.phone}',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+                'OTP ভেরিফিকেশন',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 20, right: 20, left: 20),
+            child: Center(
+              child: Text(
+                '+88${widget.phone} নম্বরে পাঠানো ছয় ডিজিটের কোডটি নিচের ঘরে লিখুন।',
+                style: TextStyle(fontSize: 16),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.only(top: 20, right: 35, left: 35),
             child: Pinput(
               length: 6,
-              defaultPinTheme: defaultPinTheme,
+              focusedPinTheme: defaultPinTheme,
               pinAnimationType: PinAnimationType.slide,
               focusNode: _pinPutFocusNode,
               cursor: cursor,
@@ -105,14 +118,15 @@ class _OTPScreenState extends State<OTPScreen> {
                 print('Tap: Tapping...');
               },
               onCompleted: (pin) async {
-                print('Working...');
+                // print('Working...');
                 try {
                   await FirebaseAuth.instance
                       .signInWithCredential(PhoneAuthProvider.credential(
                           verificationId: _verificationCode, smsCode: pin))
                       .then((value) async {
                     if (value.user != null) {
-                      showSimpleSnackBar(context, 'Successfull');
+                      showSimpleSnackBar(
+                          context, 'সফলভাবে লগইন সম্পন্ন হয়েছে!');
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => Home()),
@@ -123,7 +137,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   FocusScope.of(context).unfocus();
                   // _scaffoldkey.currentState!
                   //     .showSnackBar(SnackBar(content: Text('invalid OTP')));
-                  showSimpleSnackBar(context, 'Invalid OTP');
+                  showSimpleSnackBar(context, 'সঠিক নয়! আবার চেষ্টা করুন।');
                   // ScaffoldMessenger.of(context).showSnackBar(
                   //   SnackBar(
                   //     behavior: SnackBarBehavior.floating,

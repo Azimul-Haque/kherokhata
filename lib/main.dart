@@ -1,7 +1,10 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unnecessary_null_comparison
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:kherokhata/extra/privacy.dart';
+import 'package:kherokhata/home.dart';
 
 import 'login.dart';
 
@@ -17,7 +20,6 @@ import 'login.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
   runApp(MyApp());
 }
 
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginScreen(),
+        '/': (context) => InitializerWidget(),
         // '/formpage': (context) => FormPage(),
         // '/favorites': (context) => FavoritesPage(),
         // '/qstnanswer': (context) => QuestionAnswerPage(),
@@ -44,8 +46,46 @@ class MyApp extends StatelessWidget {
         // '/history': (context) => HistoryPage(),
         // '/exam': (context) => ExamPage(),
         // '/ammendments': (context) => AmmendmentsPage(),
-        // '/exams': (context) => ExamsPage(),
+        '/privacy': (context) => PrivacyPage(),
       },
     );
+  }
+}
+
+class InitializerWidget extends StatefulWidget {
+  const InitializerWidget({Key? key}) : super(key: key);
+
+  @override
+  _InitializerWidgetState createState() => _InitializerWidgetState();
+}
+
+class _InitializerWidgetState extends State<InitializerWidget> {
+  late FirebaseAuth _auth;
+
+  // late User _user;
+
+  String uid = '0';
+
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _auth = FirebaseAuth.instance;
+    uid = _auth.currentUser?.uid ?? '0';
+    isLoading = false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return isLoading
+        ? Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          )
+        : uid == '0'
+            ? LoginScreen()
+            : Home();
   }
 }
