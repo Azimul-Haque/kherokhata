@@ -225,7 +225,7 @@ class _HomeState extends State<Home> {
             color: Colors.black87,
           ),
           title: Text("আমাদের সম্পর্কে"),
-          onTap: () {
+          onTap: () async {
             await FirebaseAuth.instance.signOut();
             Navigator.pushAndRemoveUntil(
                 context,
