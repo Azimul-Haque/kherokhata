@@ -87,13 +87,13 @@ class _HomeState extends State<Home> {
             Positioned(
               left: 30,
               bottom: 25,
-              child: Text(username,
+              child: Text('ইউজারনেম',
                   style: TextStyle(color: Colors.white70, fontSize: 13)),
             ),
             Positioned(
               right: 3,
               bottom: 3,
-              child: Text("Version: 1.2.0",
+              child: Text("Version: 1.0.0",
                   style: TextStyle(color: Colors.white60, fontSize: 11)),
             ),
           ],
