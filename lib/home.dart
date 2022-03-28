@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
                 ),
                 child: CircleAvatar(
                   backgroundColor: Colors.blue,
-                  child: Text("A", style: TextStyle(fontSize: 15)),
+                  child: Text("A", style: TextStyle(fontSize: 25)),
                 ),
                 // ClipRRect(
                 //   borderRadius: BorderRadius.circular(50.0),
