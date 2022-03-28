@@ -68,10 +68,17 @@ class _HomeState extends State<Home> {
                   boxShadow: [_boxShadow1()],
                   borderRadius: BorderRadius.circular(50),
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(50.0),
-                  child: Image.asset("assets/images/withouttext.png"),
+                child: CircleAvatar(
+                  backgroundColor: Colors.blue,
+                  child: Text("A"),
+                  maxRadius: 30,
+                  foregroundImage: ImageProvider(
+                      Image.asset("assets/images/withouttext.png")),
                 ),
+                // ClipRRect(
+                //   borderRadius: BorderRadius.circular(50.0),
+                //   child: Image.asset("assets/images/withouttext.png"),
+                // ),
               ),
             ),
             Positioned(
