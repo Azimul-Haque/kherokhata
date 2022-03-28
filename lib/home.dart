@@ -92,7 +92,7 @@ class _HomeState extends State<Home> {
             ),
             Positioned(
               right: 10,
-              bottom: 25,
+              bottom: 30,
               child: IconButton(
                 padding: EdgeInsets.all(0.0),
                 icon: Icon(
