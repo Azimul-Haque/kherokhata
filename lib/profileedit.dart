@@ -51,7 +51,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     return Scaffold(
       key: _scaffoldkey,
       appBar: AppBar(
-        title: Text('OTP ভেরিফিকেশন'),
+        title: Text('ব্যবহারকারীর তথ্য'),
         flexibleSpace: appBarStyle(),
       ),
       body: Column(
