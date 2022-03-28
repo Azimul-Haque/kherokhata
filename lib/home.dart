@@ -93,8 +93,10 @@ class _HomeState extends State<Home> {
             Positioned(
               right: 10,
               bottom: 40,
-              child: Text("Version: 1.0.0",
-                  style: TextStyle(color: Colors.white60, fontSize: 11)),
+              child: Icon(
+                Icons.play_arrow,
+                color: Colors.white,
+              ),
             ),
             Positioned(
               right: 3,
