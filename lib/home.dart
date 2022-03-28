@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kherokhata/login.dart';
+import 'package:kherokhata/profileedit.dart';
 
 import 'globals.dart';
 
@@ -100,8 +101,8 @@ class _HomeState extends State<Home> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => PrivacyPage()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ProfileEditPage()));
                 },
               ),
             ),
