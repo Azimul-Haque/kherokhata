@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      drawer: Drawer(),
+      drawer: _homeDrawer(userName, userDesig, userOrg),
       body: Center(
         child: Text(userdata.uid),
       ),
