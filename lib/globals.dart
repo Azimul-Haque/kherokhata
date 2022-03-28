@@ -60,14 +60,10 @@ showSimpleSnackBar(BuildContext context, String message) {
   );
 }
 
-library project1.globals;
-
-import 'package:flutter/material.dart';
-
 appBarStyle() {
   return Ink(
-    decoration: new BoxDecoration(
-      gradient: new LinearGradient(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
         colors: [
           Colors.green[800],
           Colors.lightGreen,
