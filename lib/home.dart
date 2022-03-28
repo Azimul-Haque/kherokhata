@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
       children: <Widget>[
         Stack(
           children: <Widget>[
-            Image.asset("assets/images/drawer.jpg"),
+            // Image.asset("assets/images/drawer.jpg"),
             Positioned(
               left: 30,
               bottom: 70,
