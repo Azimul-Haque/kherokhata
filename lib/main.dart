@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => InitializerWidget(),
-        // '/formpage': (context) => FormPage(),
+        '/profileedit': (context) => ProfileEditPage(),
         // '/favorites': (context) => FavoritesPage(),
         // '/qstnanswer': (context) => QuestionAnswerPage(),
         // '/constitution': (context) => ConstituionPage(),
