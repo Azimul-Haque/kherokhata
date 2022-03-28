@@ -40,6 +40,7 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
+      drawer: Drawer(),
       body: Center(
         child: Text(userdata.uid),
       ),
