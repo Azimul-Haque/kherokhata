@@ -6,14 +6,14 @@ import 'package:kherokhata/globals.dart';
 import 'package:kherokhata/home.dart';
 import 'package:pinput/pinput.dart';
 
-class ProfileEditPage extends StatefulWidget {
+class OTPScreen extends StatefulWidget {
   final String phone;
-  ProfileEditPage(this.phone);
+  OTPScreen(this.phone);
   @override
-  _ProfileEditPageState createState() => _ProfileEditPageState();
+  _OTPScreenState createState() => _OTPScreenState();
 }
 
-class _ProfileEditPageState extends State<ProfileEditPage> {
+class _OTPScreenState extends State<OTPScreen> {
   final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
   late String _verificationCode;
   final TextEditingController _pinPutController = TextEditingController();
