@@ -56,11 +56,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 30,
-          ),
           Container(
-            margin: EdgeInsets.only(top: 70),
+            margin: EdgeInsets.only(top: 10),
             child: Center(
               child: Text(
                 'OTP ভেরিফিকেশন',
