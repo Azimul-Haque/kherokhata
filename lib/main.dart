@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kherokhata/extra/privacy.dart';
 import 'package:kherokhata/home.dart';
+import 'package:kherokhata/profileedit.dart';
 
 import 'login.dart';
 
