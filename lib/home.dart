@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kherokhata/login.dart';
 import 'package:kherokhata/profileedit.dart';
 
-import 'globals.dart';
+import 'package:kherokhata/globals.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
