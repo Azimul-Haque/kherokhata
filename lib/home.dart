@@ -216,6 +216,23 @@ class _HomeState extends State<Home> {
         //     // Share.share('check out my website https://example.com', subject: 'Look what I made!');
         //   },
         // ),
+        Divider(
+          color: Colors.black26,
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.info,
+            color: Colors.black87,
+          ),
+          title: Text("আমাদের সম্পর্কে"),
+          onTap: () {
+            await FirebaseAuth.instance.signOut();
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreen()),
+                (route) => false);
+          },
+        ),
       ],
     ));
   }
