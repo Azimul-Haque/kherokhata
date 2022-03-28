@@ -28,6 +28,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         elevation: 2,
         title: Text('খেরোখাতা'),
+        flexibleSpace: appBarStyle(),
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
