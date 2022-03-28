@@ -50,4 +50,153 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+  Widget _homeDrawer(String username, String userdesig, String userorg) {
+    return Drawer(
+        child: ListView(
+      children: <Widget>[
+        Stack(
+          children: <Widget>[
+            Image.asset("assets/images/drawer.jpg"),
+            Positioned(
+              left: 30,
+              bottom: 70,
+              child: Container(
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                  boxShadow: [_boxShadow1()],
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50.0),
+                  child: Image.asset("assets/images/withouttext.png"),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              bottom: 40,
+              child: Text('সংবিধান সারথি',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
+            ),
+            Positioned(
+              left: 30,
+              bottom: 25,
+              child: Text(username,
+                  style: TextStyle(color: Colors.white70, fontSize: 13)),
+            ),
+            Positioned(
+              right: 3,
+              bottom: 3,
+              child: Text("Version: 1.2.0",
+                  style: TextStyle(color: Colors.white60, fontSize: 11)),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.home,
+            color: Colors.black87,
+          ),
+          title: Text("নীড়"),
+          onTap: () {
+            Navigator.pop(context); // this line closes the drawer
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.add_to_photos,
+            color: Colors.black87,
+          ),
+          title: Text("প্রশ্ন যোগ করুন"),
+          onTap: () {
+            Navigator.pop(context);
+            // Route route = MaterialPageRoute(builder: (context) => NotificationPage(["1", "2"]));
+            // Navigator.push(context, route);
+            Navigator.pushNamed(context, '/formpage');
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.favorite,
+            color: Colors.black87,
+          ),
+          title: Text("প্রিয় তালিকা"),
+          onTap: () {
+            Navigator.pop(context);
+            // Route route = MaterialPageRoute(builder: (context) => NotificationPage(["1", "2"]));
+            // Navigator.push(context, route);
+            Navigator.pushNamed(context, '/favorites');
+          },
+        ),
+        Divider(
+          color: Colors.black26,
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.settings,
+            color: Colors.black87,
+          ),
+          title: Text("সেটিংস"),
+          onTap: () {
+            Navigator.pop(context);
+            Route route =
+                MaterialPageRoute(builder: (context) => SettingsPage());
+            Navigator.push(context, route).then((value) {
+              setState(() {
+                userName = value[0];
+                userDesig = value[1];
+                userOrg = value[2];
+              });
+            });
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.mail,
+            color: Colors.black87,
+          ),
+          title: Text("মতামত জানান"),
+          onTap: () {
+            Navigator.pop(context);
+            Route route =
+                MaterialPageRoute(builder: (context) => ContactPage(userName));
+            Navigator.push(context, route);
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.info,
+            color: Colors.black87,
+          ),
+          title: Text("আমাদের সম্পর্কে"),
+          onTap: () {
+            Navigator.pop(context);
+            _showDialog();
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.share,
+            color: Colors.black87,
+          ),
+          title: Text("শেয়ার করুন"),
+          onTap: () {
+            Navigator.pop(context);
+            share();
+            // final RenderBox box = context.findRenderObject();
+            // Share.share("https://orbachinujbuk.com/",
+            //   subject: "অ্যাপটি শেয়ার করুন!",
+            //   sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size
+            // );
+            // Share.share('check out my website https://example.com', subject: 'Look what I made!');
+          },
+        ),
+      ],
+    ));
+  }
 }
