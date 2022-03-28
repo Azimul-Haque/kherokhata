@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('খেরোখাতা'),
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
