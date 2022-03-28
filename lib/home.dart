@@ -99,7 +99,10 @@ class _HomeState extends State<Home> {
                   Icons.edit,
                   color: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => PrivacyPage()));
+                },
               ),
             ),
             Positioned(
