@@ -93,9 +93,12 @@ class _HomeState extends State<Home> {
             Positioned(
               right: 10,
               bottom: 40,
-              child: Icon(
-                Icons.edit,
-                color: Colors.white,
+              child: IconButton(
+                icon: Icon(
+                  Icons.edit,
+                  color: Colors.white,
+                ),
+                onPressed: () {},
               ),
             ),
             Positioned(
