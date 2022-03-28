@@ -71,9 +71,6 @@ class _HomeState extends State<Home> {
                 child: CircleAvatar(
                   backgroundColor: Colors.blue,
                   child: Text("A"),
-                  maxRadius: 30,
-                  foregroundImage: ImageProvider(
-                      Image.asset("assets/images/withouttext.png")),
                 ),
                 // ClipRRect(
                 //   borderRadius: BorderRadius.circular(50.0),
@@ -84,7 +81,7 @@ class _HomeState extends State<Home> {
             Positioned(
               left: 30,
               bottom: 40,
-              child: Text('সংবিধান সারথি',
+              child: Text('দোকানের নাম',
                   style: TextStyle(color: Colors.white, fontSize: 16)),
             ),
             Positioned(
