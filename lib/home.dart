@@ -94,7 +94,7 @@ class _HomeState extends State<Home> {
               right: 10,
               bottom: 40,
               child: Icon(
-                Icons.play_arrow,
+                Icons.edit,
                 color: Colors.white,
               ),
             ),
