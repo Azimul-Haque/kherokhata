@@ -59,3 +59,24 @@ showSimpleSnackBar(BuildContext context, String message) {
     ),
   );
 }
+
+library project1.globals;
+
+import 'package:flutter/material.dart';
+
+appBarStyle() {
+  return Ink(
+    decoration: new BoxDecoration(
+      gradient: new LinearGradient(
+        colors: [
+          Colors.green[800],
+          Colors.lightGreen,
+        ],
+        begin: const FractionalOffset(0.0, 0.0),
+        end: const FractionalOffset(1.0, 0.0),
+        stops: [0.0, 1.0],
+        tileMode: TileMode.clamp,
+      ),
+    ),
+  );
+}
