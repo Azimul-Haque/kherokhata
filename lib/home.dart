@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
       ),
       drawer: _homeDrawer(),
       body: Center(
-        child: Text(userdata),
+        child: Text(userdata.toString()),
       ),
     );
   }
