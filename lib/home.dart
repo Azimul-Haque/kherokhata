@@ -91,6 +91,12 @@ class _HomeState extends State<Home> {
                   style: TextStyle(color: Colors.white70, fontSize: 13)),
             ),
             Positioned(
+              right: 10,
+              bottom: 25,
+              child: Text("Version: 1.0.0",
+                  style: TextStyle(color: Colors.white60, fontSize: 11)),
+            ),
+            Positioned(
               right: 3,
               bottom: 3,
               child: Text("Version: 1.0.0",
