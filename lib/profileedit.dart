@@ -31,7 +31,6 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     // ignore: todo
     // TODO: implement initState
     super.initState();
-    _verifyPhone();
   }
 
   @override
@@ -96,91 +95,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
               ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 20, right: 20, left: 20),
-            child: Center(
-              child: Text(
-                '+88${widget.phone} নম্বরে পাঠানো ছয় ডিজিটের কোডটি নিচের ঘরে লিখুন।',
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20, right: 35, left: 35),
-            child: Pinput(
-              length: 6,
-              focusedPinTheme: defaultPinTheme,
-              pinAnimationType: PinAnimationType.slide,
-              focusNode: _pinPutFocusNode,
-              cursor: cursor,
-              showCursor: true,
-              onTap: () {
-                print('Tap: Tapping...');
-              },
-              onCompleted: (pin) async {
-                // print('Working...');
-                try {
-                  await FirebaseAuth.instance
-                      .signInWithCredential(PhoneAuthProvider.credential(
-                          verificationId: _verificationCode, smsCode: pin))
-                      .then((value) async {
-                    if (value.user != null) {
-                      showSimpleSnackBar(
-                          context, 'সফলভাবে লগইন সম্পন্ন হয়েছে!');
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (context) => Home()),
-                          (route) => false);
-                    }
-                  });
-                } catch (e) {
-                  FocusScope.of(context).unfocus();
-                  // _scaffoldkey.currentState!
-                  //     .showSnackBar(SnackBar(content: Text('invalid OTP')));
-                  showSimpleSnackBar(context, 'সঠিক নয়! আবার চেষ্টা করুন।');
-                  // ScaffoldMessenger.of(context).showSnackBar(
-                  //   SnackBar(
-                  //     behavior: SnackBarBehavior.floating,
-                  //     content: Text('invalid OTP'),
-                  //   ),
-                  // );
-                }
-              },
-            ),
-          )
         ],
       ),
     );
-  }
-
-  _verifyPhone() async {
-    await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: '+88${widget.phone}',
-        verificationCompleted: (PhoneAuthCredential credential) async {
-          await FirebaseAuth.instance
-              .signInWithCredential(credential)
-              .then((value) async {
-            if (value.user != null) {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),
-                  (route) => false);
-            }
-          });
-        },
-        verificationFailed: (FirebaseAuthException e) {
-          print(e.message);
-        },
-        codeSent: (String verficationID, int? resendToken) {
-          setState(() {
-            _verificationCode = verficationID;
-          });
-        },
-        codeAutoRetrievalTimeout: (String verificationID) {
-          setState(() {
-            _verificationCode = verificationID;
-          });
-        },
-        timeout: Duration(seconds: 120));
   }
 }
