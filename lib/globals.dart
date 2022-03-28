@@ -65,7 +65,7 @@ appBarStyle() {
     decoration: BoxDecoration(
       gradient: LinearGradient(
         colors: [
-          Colors.green[800],
+          Colors.green[700],
           Colors.lightGreen,
         ],
         begin: const FractionalOffset(0.0, 0.0),
