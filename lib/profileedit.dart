@@ -1,10 +1,6 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, prefer_const_constructors, unused_local_variable, avoid_print, unused_field
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kherokhata/globals.dart';
-import 'package:kherokhata/home.dart';
-import 'package:pinput/pinput.dart';
 
 class ProfileEditPage extends StatefulWidget {
   // final String phone;
@@ -14,17 +10,7 @@ class ProfileEditPage extends StatefulWidget {
 }
 
 class _ProfileEditPageState extends State<ProfileEditPage> {
-  final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
-  late String _verificationCode;
-  final TextEditingController _pinPutController = TextEditingController();
-  final FocusNode _pinPutFocusNode = FocusNode();
-  final BoxDecoration pinPutDecoration = BoxDecoration(
-    color: const Color.fromRGBO(43, 46, 66, 1),
-    borderRadius: BorderRadius.circular(50.0),
-    border: Border.all(
-      color: const Color.fromRGBO(126, 203, 224, 1),
-    ),
-  );
+  var _scaffoldkey;
 
   @override
   void initState() {
@@ -35,21 +21,6 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
   @override
   Widget build(BuildContext context) {
-    const borderColor = Color.fromRGBO(30, 60, 87, 1);
-    final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
-      textStyle: TextStyle(
-          fontSize: 24,
-          color: Color.fromRGBO(30, 60, 87, 1),
-          fontWeight: FontWeight.w600),
-      decoration: BoxDecoration(
-        color: Colors.amber[50],
-        border: Border.all(color: Colors.green),
-        borderRadius: BorderRadius.circular(10),
-        // backgroundBlendMode: BlendMode.clear,
-      ),
-    );
     final cursor = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
