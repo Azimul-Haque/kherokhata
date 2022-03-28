@@ -183,23 +183,23 @@ class _HomeState extends State<Home> {
         //     _showDialog();
         //   },
         // ),
-        ListTile(
-          leading: Icon(
-            Icons.share,
-            color: Colors.black87,
-          ),
-          title: Text("শেয়ার করুন"),
-          onTap: () {
-            Navigator.pop(context);
-            share();
-            // final RenderBox box = context.findRenderObject();
-            // Share.share("https://orbachinujbuk.com/",
-            //   subject: "অ্যাপটি শেয়ার করুন!",
-            //   sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size
-            // );
-            // Share.share('check out my website https://example.com', subject: 'Look what I made!');
-          },
-        ),
+        // ListTile(
+        //   leading: Icon(
+        //     Icons.share,
+        //     color: Colors.black87,
+        //   ),
+        //   title: Text("শেয়ার করুন"),
+        //   onTap: () {
+        //     Navigator.pop(context);
+        //     share();
+        //     // final RenderBox box = context.findRenderObject();
+        //     // Share.share("https://orbachinujbuk.com/",
+        //     //   subject: "অ্যাপটি শেয়ার করুন!",
+        //     //   sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size
+        //     // );
+        //     // Share.share('check out my website https://example.com', subject: 'Look what I made!');
+        //   },
+        // ),
       ],
     ));
   }
