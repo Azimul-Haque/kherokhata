@@ -44,14 +44,14 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      drawer: _homeDrawer(userName, userDesig, userOrg),
+      drawer: _homeDrawer(),
       body: Center(
         child: Text(userdata.uid),
       ),
     );
   }
 
-  Widget _homeDrawer(String username, String userdesig, String userorg) {
+  Widget _homeDrawer() {
     return Drawer(
         child: ListView(
       children: <Widget>[
