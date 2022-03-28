@@ -92,7 +92,7 @@ class _HomeState extends State<Home> {
             ),
             Positioned(
               right: 10,
-              bottom: 25,
+              bottom: 40,
               child: Text("Version: 1.0.0",
                   style: TextStyle(color: Colors.white60, fontSize: 11)),
             ),
