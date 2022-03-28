@@ -199,4 +199,16 @@ class _HomeState extends State<Home> {
       ],
     ));
   }
+
+  BoxShadow _boxShadow1() {
+    return BoxShadow(
+      color: Colors.grey[700],
+      blurRadius: 10.0, // has the effect of softening the shadow
+      spreadRadius: 1.0, // has the effect of extending the shadow
+      offset: Offset(
+        3.0, // horizontal, move right 10
+        3.0, // vertical, move down 10
+      ),
+    );
+  }
 }
