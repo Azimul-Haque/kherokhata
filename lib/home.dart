@@ -94,6 +94,7 @@ class _HomeState extends State<Home> {
               right: 10,
               bottom: 40,
               child: IconButton(
+                padding: EdgeInsets.all(0.0),
                 icon: Icon(
                   Icons.edit,
                   color: Colors.white,
