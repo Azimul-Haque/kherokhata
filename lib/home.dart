@@ -221,10 +221,10 @@ class _HomeState extends State<Home> {
         ),
         ListTile(
           leading: Icon(
-            Icons.info,
+            Icons.logout,
             color: Colors.black87,
           ),
-          title: Text("আমাদের সম্পর্কে"),
+          title: Text("লগ আউট"),
           onTap: () async {
             await FirebaseAuth.instance.signOut();
             Navigator.pushAndRemoveUntil(
